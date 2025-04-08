@@ -18,9 +18,13 @@
         "name": "next"
       }
     ],
+    // --- Add baseUrl here ---
+    "baseUrl": ".", // Sets the base directory for module resolution
+    // --- End of addition ---
     "paths": {
       "@/*": ["./src/*"]
     }
+    // --- Other options continue below ---
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

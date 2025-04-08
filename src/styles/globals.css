@@ -1,0 +1,50 @@
+/* Import Tailwind styles (CSS-first approach) */
+@import "tailwindcss";
+
+
+
+/* Define your custom theme (colors, etc.) using @theme */
+@theme {
+  /* Custom colors defined as CSS variables */
+  --color-hwc-teal: #0098A6;        /* Monsell */
+  --color-hwc-teal-dark: #005961;
+  --color-hwc-blue-light: #DBF4FC;
+  --color-hwc-dark: #002225;        /* Gunmetal */
+  --color-hwc-white: #FAFAF9;         /* Seasalt */
+  --color-neutralstaupe-greyneutral-5: #A0A0A0; 
+
+  /* Keep your existing variables if you want them as custom properties */
+  /* Note: Defining --color-background/foreground here might conflict */
+  /* with the :root definitions below unless intended. */
+  /* Consider consolidating variable definitions. */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-background-light: #ffffff;
+  --color-foreground-light: #171717;
+}
+
+/* Your global styles */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-hwc-teal: #0098A6;
+  --color-hwc-white: #FAFAF9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family: Arial, Helvetica, sans-serif; */ /* Consider using Tailwind font utilities */
+}
+
+/* Tailwind's base, components, and utilities are now included via @import */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */

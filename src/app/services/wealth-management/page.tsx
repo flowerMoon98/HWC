@@ -1,0 +1,55 @@
+import React from 'react';
+import { HeroSection } from '@/components/sections/HeroSection';
+import { IntroSection } from '@/components/sections/IntroSection';
+import { ContentBlock } from '@/components/sections/ContentBlock';
+
+// Wealth Management Service Page Component
+const WealthManagementPage = () => {
+  return (
+    <>
+      {/* === Hero Section === */}
+      <HeroSection
+        title="Strategic Wealth Management"
+        subtitle="Building and preserving your wealth through personalized investment strategies and comprehensive financial planning."
+        backgroundImageUrl="/images/placeholders/wealth-hero.jpg"
+        //backgroundColorClass="bg-[var(--color-hwc-blue-light)]"
+        ctaButton={{ text: 'Schedule a Consultation', href: '/contact', variant: 'default' }}
+      />
+
+      {/* === Intro Section === */}
+      <IntroSection
+        text="Achieve your long-term financial aspirations with our tailored wealth management services. We take a holistic view of your financial life to develop and implement strategies designed for growth, preservation, and legacy."
+        className="bg-white"
+      />
+
+      {/* === Content Block 1: Investment Management === */}
+      <ContentBlock
+        heading="Investment Management"
+        text="Based on your goals, risk tolerance, and time horizon, we construct and manage diversified investment portfolios designed to optimize returns while managing risk effectively. We utilize a range of asset classes and provide ongoing monitoring and adjustments."
+        imageUrl="/images/placeholders/investment.jpg" // Add placeholder
+        imageAlt="Stock market chart graph"
+        imagePosition="right"
+        className="bg-gray-50"
+      />
+
+      {/* === Content Block 2: Retirement Planning === */}
+      <ContentBlock
+        heading="Retirement Planning"
+        text="Plan for a secure and fulfilling retirement. We help you define your retirement goals, estimate future needs, and develop strategies using retirement accounts (like IRAs, 401(k)s) and investment planning to ensure you're prepared for the future."
+        imageUrl="/images/placeholders/retirement.jpg" // Add placeholder
+        imageAlt="Couple enjoying retirement on a beach"
+        imagePosition="left"
+        className="bg-white"
+      />
+
+       {/* === Content Block 3: Estate & Legacy Planning === */}
+       <ContentBlock
+        heading="Estate & Legacy Planning"
+        text="Ensure your assets are distributed according to your wishes and minimize potential tax burdens. We coordinate with legal professionals to help structure wills, trusts, and other estate planning tools to protect your legacy."
+        className="bg-gray-50"
+      />
+    </>
+  );
+};
+
+export default WealthManagementPage;
