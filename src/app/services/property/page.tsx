@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { IntroSection } from '@/components/sections/IntroSection';
 import { ContentBlock } from '@/components/sections/ContentBlock';
+import { IntroSection } from '@/components/sections/IntroSection';
 
 // Property Service Page Component
 const PropertyPage = () => {
@@ -18,9 +18,10 @@ const PropertyPage = () => {
 
       {/* === Intro Section === */}
       <IntroSection
-        text="Real estate often represents a significant portion of personal wealth. We provide guidance on property acquisition, investment analysis, financing options, and integrating real estate into your broader financial portfolio."
-        className="bg-white"
-      />
+        title="A Strategic Approach to Property Investments"
+        description='We provide insights and guidance on property decisions that are aligned with your financial goals, enabling you to invest in real estate confidently.'
+        theme='light'
+        />
 
       {/* === Content Block 1: Investment Property Analysis === */}
       <ContentBlock

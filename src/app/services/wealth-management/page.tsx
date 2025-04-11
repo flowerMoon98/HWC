@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { IntroSection } from '@/components/sections/IntroSection';
+import { IntroSectionStacked } from '@/components/sections/IntroSectionStacked';
+
 import { ContentBlock } from '@/components/sections/ContentBlock';
 
 // Wealth Management Service Page Component
@@ -17,9 +18,10 @@ const WealthManagementPage = () => {
       />
 
       {/* === Intro Section === */}
-      <IntroSection
-        text="Achieve your long-term financial aspirations with our tailored wealth management services. We take a holistic view of your financial life to develop and implement strategies designed for growth, preservation, and legacy."
-        className="bg-white"
+      <IntroSectionStacked
+        tagline="Strategic Wealth Managment for a Prosperous Tomorrow"
+        title="Navigate your financial journey with the insight and support of our experienced advisors"
+        theme='dark'
       />
 
       {/* === Content Block 1: Investment Management === */}

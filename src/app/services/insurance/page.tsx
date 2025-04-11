@@ -22,10 +22,10 @@ const InsurancePage = () => {
 
       {/* === Intro Section === */}
       <IntroSection
-        // heading="Navigate Uncertainty with Confidence" // Optional heading
-        text="Insurance is a vital component of a sound financial plan. We offer personalized assessments and access to a wide range of insurance products to ensure you have the right coverage at the right price, safeguarding your family, assets, and business from the unexpected."
-        className="bg-white"
-      />
+        title="Guidance with Purpose"
+        description="We evaluate your life, health, and property coverage needs holistically, aiming  to build a personalized protection strategy that aligns with your life and goals." // Truncated for brevity
+        //className='className="bg-[var(--color-hwc-dark)] text-[var(--color-hwc-white)]" // Set background and text color'
+        theme='dark'/>
 
       {/* === Content Block 1: Personal Insurance === */}
       <ContentBlock

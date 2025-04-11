@@ -6,6 +6,7 @@ import { IntroSection } from '@/components/sections/IntroSection';
 import { ContentBlock } from '@/components/sections/ContentBlock';
 import { NicheSection } from '@/components/sections/NicheSection';
 import { TestimonialSection } from '@/components/sections/TestimonialSection';
+import { ContactFormSection } from '@/components/layout/ContactFormSection';
 // Import mock data
 import { mockTestimonials } from '@/lib/data/testimonials';
 
@@ -23,8 +24,10 @@ export default function Home() {
 
       {/* === Intro Section === */}
       <IntroSection
-        heading="Welcome to HWC"
-        text="We provide comprehensive, personalized strategies..." // Truncated for brevity
+        title="Welcome to HWC"
+        description="We provide comprehensive, personalized strategies..." // Truncated for brevity
+        //className='className="bg-[var(--color-hwc-dark)] text-[var(--color-hwc-white)]" // Set background and text color'
+        theme='dark'
       />
 
       {/* === Who We Are Section === */}
@@ -51,6 +54,10 @@ export default function Home() {
 
       {/* === Testimonial Section === */}
       <TestimonialSection testimonials={mockTestimonials} />
+
+      {/* === Contact Form Section === */}
+      {/* Added before the implicit Footer */}
+      <ContactFormSection />
 
     </>
   );

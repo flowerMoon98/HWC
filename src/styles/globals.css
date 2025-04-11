@@ -11,7 +11,11 @@
   --color-hwc-blue-light: #DBF4FC;
   --color-hwc-dark: #002225;        /* Gunmetal */
   --color-hwc-white: #FAFAF9;         /* Seasalt */
-  --color-neutralstaupe-greyneutral-5: #A0A0A0; 
+  --color-neutralstaupe-greyneutral-5: #A0A0A0;
+
+
+  --color-divider-teal: #00B2A9;     /* Specific Teal for divider */
+ 
 
   /* Keep your existing variables if you want them as custom properties */
   /* Note: Defining --color-background/foreground here might conflict */

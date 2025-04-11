@@ -1,6 +1,6 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { IntroSection } from '@/components/sections/IntroSection';
+import { IntroSectionStacked } from '@/components/sections/IntroSectionStacked';
 import { ContentBlock } from '@/components/sections/ContentBlock';
 
 // Accounting Service Page Component
@@ -17,10 +17,12 @@ const AccountingPage = () => {
       />
 
       {/* === Intro Section === */}
-      <IntroSection
-        text="Maintain financial clarity and compliance with our expert accounting services. We handle the complexities so you can focus on what you do best, providing timely insights to support informed decision-making."
-        className="bg-white"
-      />
+      <IntroSectionStacked
+  tagline="Personalised Financial Review"
+  title="Get a complete analysis of your financial health to help us create a strategic accounting plan that works for you."
+  theme="dark" // Specify the dark theme here
+/>
+
 
       {/* === Content Block 1: Bookkeeping & Reporting === */}
       <ContentBlock

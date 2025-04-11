@@ -18,8 +18,10 @@ const HealthcarePlanningPage = () => {
 
       {/* === Intro Section === */}
       <IntroSection
-        text="Healthcare is one of the most significant expenses throughout life, especially in retirement. Our planning services help you understand your options, estimate future costs, and integrate healthcare considerations into your overall financial strategy."
-        className="bg-white"
+        title="Why Healthcare Planning Matters"
+        description="An introduction to how medical expenses impact long-term financial goals and why proactive planning is essential" // Truncated for brevity
+        //className='className="bg-[var(--color-hwc-dark)] text-[var(--color-hwc-white)]" // Set background and text color'
+        theme='light'
       />
 
       {/* === Content Block 1: Understanding Options === */}

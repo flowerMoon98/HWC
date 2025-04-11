@@ -5,10 +5,6 @@
  *
  * This file serves as the central export point for types that are used across
  * multiple components or modules.
- *
- * Define interfaces for complex objects, data structures, API responses, etc. here.
- * Simple component prop types that aren't reused can often be defined
- * directly within the component file.
  */
 
 // Example: Define a type for a service offering (we might use this later)
@@ -20,30 +16,25 @@ export type ServiceOffering = {
     slug: string; // For linking to the service page
   };
   
-  // Example: Define possible variants for components if needed globally
-  // export type ComponentVariant = 'primary' | 'secondary' | 'outline';
+  // Interface for a single Testimonial item
+  export interface Testimonial{
+    id: string | number; // Unique identifier
+    quote: string; // The testimonial text
+    authorName: string; // Name of the person giving the testimonial
+    authorTitle?: string; // Optional title/company of the author
+    imageUrl?: string;   // Optional URL for the author's image
+  }
   
-  
-  // --- Add more shared types below as the project grows ---
-  
-  
- 
-   export interface Testimonial {
-     id: string | number;
-     quote: string;
-     authorName: string;
-     authorTitle?: string;
-     imageUrl?: string;
-   }
-  
-  // Example: Interface for a Team Member (from Phase 6)
-  // export interface TeamMember {
-  //   id: string;
-  //   name: string;
-  //   role: string;
-  //   bio: string;
-  //   imageUrl: string;
-  // }
+  // --- ADD/UNCOMMENT THIS INTERFACE ---
+  // Interface for a Team Member
+  export interface TeamMember {
+    id: string | number;
+    name: string;
+    role: string;
+    bio?: string; // Optional short bio
+    imageUrl: string; // Image URL for the member's photo
+  }
+  // --- END OF ADDITION ---
   
   // You can also re-export types from other files within this directory if needed
   // export * from './apiTypes';
