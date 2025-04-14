@@ -2,16 +2,19 @@ import React from 'react'; // Ensure React is imported
 
 // Import section components used on the page
 import { HeroSection } from '@/components/sections/HeroSection';
-import { IntroSection } from '@/components/sections/IntroSection';
 import { ContentBlock } from '@/components/sections/ContentBlock';
 import { NicheSection } from '@/components/sections/NicheSection';
 import { TestimonialSection } from '@/components/sections/TestimonialSection';
 import { ContactFormSection } from '@/components/layout/ContactFormSection';
+import { TwoColumnIntroSection } from '@/components/sections/TwoColumnIntroSection';
 // Import mock data
 import { mockTestimonials } from '@/lib/data/testimonials';
+import { whoWeAreContent,whyChooseUsContent } from '@/lib/data/pageContent';
 
 // Make sure this line is correct: export default function Home() { ... }
 export default function Home() {
+  
+  
   return (
     <> {/* Use Fragment shorthand */}
       {/* === Hero Section === */}
@@ -23,31 +26,17 @@ export default function Home() {
       />
 
       {/* === Intro Section === */}
-      <IntroSection
-        title="Welcome to HWC"
-        description="We provide comprehensive, personalized strategies..." // Truncated for brevity
-        //className='className="bg-[var(--color-hwc-dark)] text-[var(--color-hwc-white)]" // Set background and text color'
-        theme='dark'
+      <TwoColumnIntroSection
+        leftColumn={whoWeAreContent}
+        rightColumn={whyChooseUsContent}
+        // Background color (light blue) is set within the component itself
       />
 
       {/* === Who We Are Section === */}
-      <ContentBlock
-        heading="Who We Are"
-        text="Founded on principles of trust and expertise..." // Truncated for brevity
-        imageUrl="/images/placeholders/who-we-are.jpg" // Ensure placeholder exists
-        imageAlt="Team meeting discussion"
-        className="bg-white"
-      />
+      
 
       {/* === Why Choose Us Section === */}
-      <ContentBlock
-        heading="Why Choose Us?"
-        text="Our integrated approach sets us apart..." // Truncated for brevity
-        imageUrl="/images/placeholders/why-choose-us.jpg" // Ensure placeholder exists
-        imageAlt="Abstract image representing integration"
-        imagePosition="left"
-        className="bg-gray-50"
-      />
+      
 
       {/* === Niche Section === */}
       <NicheSection />

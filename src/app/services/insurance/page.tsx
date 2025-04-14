@@ -1,10 +1,13 @@
 import React from 'react';
+// Import section components used on this page
 import { HeroSection } from '@/components/sections/HeroSection';
 import { IntroSection } from '@/components/sections/IntroSection';
-import { ContentBlock } from '@/components/sections/ContentBlock';
-// Import Button if needed for CTAs within ContentBlocks
-// import { Button } from '@/components/ui/Button';
-// import Link from 'next/link';
+// Import the NEW feature section component
+import { InsuranceFeatureSection } from '@/components/sections/InsuranceFeatureSection';
+// Import the mock data for the features
+import { mockInsuranceFeatures } from '@/lib/data/insuranceFeatures';
+// Import ContactFormSection if needed (or handle globally later)
+// import { ContactFormSection } from '@/components/layout/ContactFormSection';
 
 // Insurance Service Page Component
 const InsurancePage = () => {
@@ -14,52 +17,32 @@ const InsurancePage = () => {
       <HeroSection
         title="Comprehensive Insurance Solutions"
         subtitle="Protecting what matters most, from personal assets to business continuity."
-        // Optional: Use a relevant background image or color
+        // Use placeholder image - ensure it exists in /public/images/placeholders/
         backgroundImageUrl="/images/placeholders/insurance-hero.jpg"
-        //backgroundColorClass="bg-[var(--color-hwc-blue-light)]" // Example using theme variable
+        // Removed background color class as image is used
         ctaButton={{ text: 'Request a Consultation', href: '/contact', variant: 'default' }}
       />
 
       {/* === Intro Section === */}
+      {/* Using the standard IntroSection component */}
       <IntroSection
         title="Guidance with Purpose"
-        description="We evaluate your life, health, and property coverage needs holistically, aiming  to build a personalized protection strategy that aligns with your life and goals." // Truncated for brevity
-        //className='className="bg-[var(--color-hwc-dark)] text-[var(--color-hwc-white)]" // Set background and text color'
-        theme='dark'/>
-
-      {/* === Content Block 1: Personal Insurance === */}
-      <ContentBlock
-        heading="Personal Insurance"
-        text="From life and health insurance to homeowners and auto coverage, we help you find policies that fit your individual needs and budget. Ensure your loved ones and personal property are protected against unforeseen events."
-        imageUrl="/images/placeholders/personal-insurance.jpg" // Add a placeholder image
-        imageAlt="Family enjoying time outdoors"
-        imagePosition="right" // Default, but explicit here
-        className="bg-gray-50"
+        description="We evaluate your life, health, and property coverage needs holistically, aiming to build a personalized protection strategy that aligns with your life and goals."
+        // Apply theme styles via className
+        theme='dark'
       />
 
-      {/* === Content Block 2: Business Insurance === */}
-      <ContentBlock
-        heading="Business Insurance"
-        text="Protect your business with comprehensive coverage options, including general liability, professional liability (E&O), workers' compensation, and commercial property insurance. We help you mitigate risks and ensure business continuity."
-        imageUrl="/images/placeholders/business-insurance.jpg" // Add a placeholder image
-        imageAlt="Modern office building exterior"
-        imagePosition="left"
-        className="bg-white"
-      />
+      {/* === Insurance Features Section === */}
+      {/* Replace previous ContentBlocks with the new section component */}
+      {/* Pass the mock data array to the features prop */}
+      <InsuranceFeatureSection features={mockInsuranceFeatures} />
 
-       {/* === Content Block 3: Specialized Coverage === */}
-       <ContentBlock
-        heading="Specialized Coverage"
-        text="We also assist with specialized insurance needs, such as umbrella policies for extra liability protection, long-term care insurance, and disability insurance, ensuring all aspects of your financial life are secure."
-        // No image for this block example
-        className="bg-gray-50"
-        // Optional CTA for this block
-        // ctaButton={{ text: 'Discuss Your Needs', href: '/contact', variant: 'outline' }}
-      />
-
-      {/* Note: Universal Contact form section will be added before Footer in Phase 7 */}
+      {/* === Contact Form Section === */}
+      {/* Add this section back if needed on this page */}
+      {/* <ContactFormSection /> */}
     </>
   );
 };
 
+// Export the page component
 export default InsurancePage;

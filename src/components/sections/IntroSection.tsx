@@ -38,7 +38,7 @@ const IntroSection: React.FC<IntroProps> = ({
 
         {/* Title (Headline) - Left Aligned */}
         {/* Inherits text color from section */}
-        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl text-left mb-4">
+        <h2 className="text-3xl  tracking-tight sm:text-4xl lg:text-5xl text-left mb-4">
           {title}
         </h2>
 

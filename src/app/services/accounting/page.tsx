@@ -1,7 +1,8 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { IntroSectionStacked } from '@/components/sections/IntroSectionStacked';
-import { ContentBlock } from '@/components/sections/ContentBlock';
+import { CoreServicesSection } from '@/components/sections/CoreServicesSection';
+import { mockAccountingServices } from '@/lib/data/accountingServices';
 
 // Accounting Service Page Component
 const AccountingPage = () => {
@@ -22,34 +23,11 @@ const AccountingPage = () => {
   title="Get a complete analysis of your financial health to help us create a strategic accounting plan that works for you."
   theme="dark" // Specify the dark theme here
 />
+    <CoreServicesSection services={mockAccountingServices}/>
 
 
-      {/* === Content Block 1: Bookkeeping & Reporting === */}
-      <ContentBlock
-        heading="Bookkeeping & Financial Reporting"
-        text="Accurate and organized financial records are crucial. We offer comprehensive bookkeeping services and generate clear financial reports (Balance Sheet, P&L) to give you a precise understanding of your financial position."
-        imageUrl="/images/placeholders/bookkeeping.jpg" // Add placeholder
-        imageAlt="Ledger and calculator"
-        imagePosition="left"
-        className="bg-gray-50"
-      />
+      
 
-      {/* === Content Block 2: Tax Planning & Preparation === */}
-      <ContentBlock
-        heading="Tax Planning & Preparation"
-        text="Navigate the complexities of tax regulations with confidence. We provide proactive tax planning strategies to minimize liabilities and ensure timely, accurate preparation and filing for individuals and businesses."
-        imageUrl="/images/placeholders/tax-planning.jpg" // Add placeholder
-        imageAlt="Tax forms and pen"
-        imagePosition="right"
-        className="bg-white"
-      />
-
-       {/* === Content Block 3: Business Advisory === */}
-       <ContentBlock
-        heading="Business Advisory"
-        text="Beyond compliance, we offer strategic advice based on your financial data. From cash flow management to budgeting and forecasting, we help you optimize performance and plan for sustainable growth."
-        className="bg-gray-50"
-      />
     </>
   );
 };

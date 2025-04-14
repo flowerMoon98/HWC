@@ -28,7 +28,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
       {/* Centered container for content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
-        <h2 className="text-3xl font-bold tracking-tight text-center text-[var(--color-hwc-dark)] sm:text-4xl mb-12 lg:mb-16">
+        <h2 className="text-3xl  tracking-tight text-center text-[var(--color-hwc-dark)] sm:text-4xl mb-12 lg:mb-16">
           {heading}
         </h2>
 

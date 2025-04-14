@@ -76,7 +76,7 @@ const HeroSection: React.FC<HeroProps> = ({
         {/* Title */}
         <h1
           className={cn(
-            'text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl',
+            'text-4xl  tracking-tight sm:text-5xl lg:text-6xl',
             textColorClass // Apply dynamic text color
           )}
         >

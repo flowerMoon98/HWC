@@ -48,7 +48,7 @@ const ContactFormSection: React.FC<ContactFormSectionProps> = ({
           {/* Apply light blue background and padding */}
           <div className="w-full md:w-1/2 bg-[var(--color-background-light)] p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
             {/* Heading */}
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--color-hwc-dark)] sm:text-4xl mb-4">
+            <h2 className="text-3xl  tracking-tight text-[var(--color-hwc-dark)] sm:text-4xl mb-4">
               {heading}
             </h2>
             {/* Subtext */}

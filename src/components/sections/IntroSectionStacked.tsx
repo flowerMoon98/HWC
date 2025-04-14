@@ -31,7 +31,7 @@ const IntroSectionStacked: React.FC<IntroSectionStackedProps> = ({
         {/* Optional Tagline */}
         {tagline && (
           // Apply tagline color
-          <p className={cn("text-base font-semibold uppercase tracking-wide mb-3", taglineColorClass)}>
+          <p className={cn("text-base  uppercase tracking-wide mb-3", taglineColorClass)}>
             {tagline}
           </p>
         )}
@@ -39,7 +39,7 @@ const IntroSectionStacked: React.FC<IntroSectionStackedProps> = ({
         {/* Title (Headline) */}
         {/* Apply conditional text color */}
         <h2 className={cn(
-            "text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl",
+            "text-3xl  tracking-tight sm:text-4xl lg:text-5xl",
             titleColorClass
           )}
         >

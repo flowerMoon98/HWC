@@ -1,54 +1,130 @@
+/* --- Nib Pro @font-face rules (Keep As Is) --- */
+@font-face {
+  font-family: 'Nib Pro'; font-style: normal; font-weight: 300; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-Light.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: italic; font-weight: 400; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-Italic.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: normal; font-weight: 600; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-SemiBold.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: italic; font-weight: 600; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-SemiBoldItalic.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: normal; font-weight: 700; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-Bold.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: italic; font-weight: 700; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-BoldItalic.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: normal; font-weight: 900; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-Black.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+@font-face {
+  font-family: 'Nib Pro'; font-style: italic; font-weight: 900; font-display: swap;
+  src: url('/fonts/NibPro/NibPro-BlackItalic.woff2') format('woff2'); /* VERIFY FILENAME */
+}
+/* --- END Nib Pro --- */
+
+
+/* --- ADD FK Grotesk Neue Trial @font-face rules below --- */
+/* !!! IMPORTANT: Verify these filenames and weights match your files !!! */
+/* !!! Use .otf if you don't have .woff2, update format() accordingly !!! */
+
+/* Example: FK Grotesk Neue Trial Light (Weight 300) */
+@font-face {
+  font-family: 'FK Grotesk Neue Trial';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/FKGroteskNeueTrial/FKGroteskNeueTrial-Light-BF6576818c0f3e8.otf') format('opentype');
+}
+
+/* Example: FK Grotesk Neue Trial Regular (Weight 400) */
+@font-face {
+  font-family: 'FK Grotesk Neue Trial';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/FKGroteskNeueTrial/FKGroteskNeueTrial-Regular-BF6576818c3af74.otf') format('opentype');
+}
+
+/* Example: FK Grotesk Neue Trial Medium (Weight 500) */
+@font-face {
+  font-family: 'FK Grotesk Neue Trial';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/FKGroteskNeueTrial/FKGroteskNeueTrial-Medium-BF6576818c3a00a.otf') format('opentype');
+}
+
+/* Example: FK Grotesk Neue Trial Bold (Weight 700) */
+@font-face {
+  font-family: 'FK Grotesk Neue Trial';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/FKGroteskNeueTrial/FKGroteskNeueTrial-Bold-BF6576818bd3700.otf') format('opentype');
+}
+
+/* Add other weights/styles (Italic, Black, Thin) if needed */
+
+/* --- END FK Grotesk Neue Trial --- */
+
+
 /* Import Tailwind styles (CSS-first approach) */
 @import "tailwindcss";
 
-
-
 /* Define your custom theme (colors, etc.) using @theme */
 @theme {
-  /* Custom colors defined as CSS variables */
-  --color-hwc-teal: #0098A6;        /* Monsell */
+  /* ... existing color variables ... */
+  --color-hwc-teal: #0098A6;
   --color-hwc-teal-dark: #005961;
   --color-hwc-blue-light: #DBF4FC;
-  --color-hwc-dark: #002225;        /* Gunmetal */
-  --color-hwc-white: #FAFAF9;         /* Seasalt */
+  --color-hwc-dark: #002225;
+  --color-hwc-white: #FAFAF9;
   --color-neutralstaupe-greyneutral-5: #A0A0A0;
-
-
-  --color-divider-teal: #00B2A9;     /* Specific Teal for divider */
- 
-
-  /* Keep your existing variables if you want them as custom properties */
-  /* Note: Defining --color-background/foreground here might conflict */
-  /* with the :root definitions below unless intended. */
-  /* Consider consolidating variable definitions. */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-divider-teal: #00B2A9;
   --color-background-light: #ffffff;
   --color-foreground-light: #171717;
+  --color-background-dark: #0a0a0a;
+  --color-foreground-dark: #ededed;
+  --background: var(--color-background-light);
+  --foreground: var(--color-foreground-light);
 }
 
 /* Your global styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-hwc-teal: #0098A6;
-  --color-hwc-white: #FAFAF9;
+  --background: var(--color-background-light);
+  --foreground: var(--color-foreground-light);
+  /* Define font variables */
+  --font-heading: 'Nib Pro', sans-serif; /* Heading font */
+  --font-body: 'FK Grotesk Neue Trial', sans-serif; /* ADDED Body font */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-background-dark);
+    --foreground: var(--color-foreground-dark);
   }
 }
 
+/* Apply base background/color and body font */
 body {
   background: var(--background);
   color: var(--foreground);
-  /* font-family: Arial, Helvetica, sans-serif; */ /* Consider using Tailwind font utilities */
+  font-family: var(--font-body); /* UPDATED to use body font */
 }
 
-/* Tailwind's base, components, and utilities are now included via @import */
-/* @tailwind base; */
-/* @tailwind components; */
-/* @tailwind utilities; */
+/* Apply custom heading font globally */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+/* --- END Global Heading Style --- */

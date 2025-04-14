@@ -75,7 +75,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
           >
             {/* Optional Heading */}
             {heading && (
-              <h2 className="text-3xl font-bold tracking-tight text-[var(--color-hwc-dark)] sm:text-4xl mb-6">
+              <h2 className="text-3xl tracking-tight text-[var(--color-hwc-dark)] sm:text-4xl mb-6">
                 {heading}
               </h2>
             )}
