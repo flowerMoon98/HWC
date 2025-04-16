@@ -34,7 +34,7 @@ const IntroSection: React.FC<IntroProps> = ({
     // Apply base padding, conditional theme classes, and custom classes
     <section className={cn('py-16 sm:py-24', themeClasses, className)}>
       {/* Container for max-width and centering */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
+      <div className="contain px-4 sm:px-6 lg:px-8 ">
 
         {/* Title (Headline) - Left Aligned */}
         {/* Inherits text color from section */}

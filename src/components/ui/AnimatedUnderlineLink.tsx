@@ -23,7 +23,9 @@ const AnimatedUnderlineLink = React.forwardRef<
         'relative w-fit', // Relative for pseudo, fit content width
         // Underline Animation Setup:
         "after:content-[''] after:absolute after:bottom-0 after:right-0 after:h-px after:w-0", // Initial state: invisible line at the right
-        "after:bg-[var(--color-hwc-dark)]", // Underline color matches text by default
+        // --- MODIFIED LINE ---
+        "after:bg-[currentColor]", // Underline color matches the current text color
+        // --- END MODIFICATION ---
         "after:transition-all after:duration-300 after:ease-in-out", // Transition for the underline width
         "hover:after:w-full hover:after:left-0 hover:after:right-auto", // On hover: expand width from left
         className // Allow overriding classes
@@ -40,4 +42,3 @@ AnimatedUnderlineLink.displayName = 'AnimatedUnderlineLink';
 
 // Export the component
 export { AnimatedUnderlineLink };
-

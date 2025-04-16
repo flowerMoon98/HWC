@@ -30,7 +30,7 @@ const AboutTeamSection: React.FC<AboutTeamSectionProps> = ({
           {/* Left Panel: Sticky Copywriting */}
           {/* Spans 2 columns on medium+, sticky positioning */}
           <div className="md:col-span-2 md:sticky top-24 self-start"> {/* Adjust top-X based on header height */}
-            <h2 className="text-3xl font-bold tracking-tight text-[var(--color-hwc-dark)] sm:text-4xl mb-6">
+            <h2 className="text-3xl  tracking-tight text-[var(--color-hwc-dark)] sm:text-4xl mb-6">
               {heading}
             </h2>
             {/* Text content passed via props */}

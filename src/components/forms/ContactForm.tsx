@@ -1,121 +1,144 @@
-'use client'; // Needed for useState hook
+'use client'; // Still a client component because we use hooks
 
-// Import React and useState hook
-import React, { useState } from 'react';
-import { Input } from '@/components/ui/Input'; // Use our floating label input
-import { Button } from '@/components/ui/Button'; // Use our button
-// Removed unused Label import
-// import { Label } from '@/components/ui/Label';
+import React from 'react';
+// UPDATED: Import useActionState from react
+import { useActionState } from 'react';
+// Import useFormStatus from react-dom (remains the same)
+import { useFormStatus } from 'react-dom';
+import { cn } from '@/lib/utils';
+import { Input } from '@/components/ui/Input';
+import { Button } from '@/components/ui/Button';
+// Import the Server Action and state type (assuming actions.ts is in lib)
+import { submitContactForm, type FormState } from '@/lib/actions';
 
-// Define state structure for the form
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  contactTime: string;
-}
-
-// Contact Form Component
-const ContactForm: React.FC = () => {
-  // State to hold form input values
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    contactTime: '',
-  });
-
-  // Handler to update state when input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    // Explicitly type prevState here
-    setFormData((prevState: FormData) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  // Placeholder submit handler
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent default browser form submission
-    console.log('Form Submitted:', formData);
-    // TODO: Implement actual form submission logic later (e.g., API call)
-    // Maybe show a success message and clear the form
-    alert('Form submitted (check console)! Actual submission not implemented yet.');
-    setFormData({ name: '', email: '', phone: '', contactTime: '' }); // Clear form
-  };
+// Internal Submit Button component to use useFormStatus
+function SubmitButton() {
+  const { pending } = useFormStatus(); // Get pending state from form
 
   return (
-    // Form element with submit handler
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <Button
+      type="submit"
+      variant="default"
+      size="default"
+      className="w-full md:w-auto"
+      disabled={pending}
+      aria-disabled={pending}
+    >
+      {pending ? 'Sending...' : 'Get in touch'}
+    </Button>
+  );
+}
+
+// Contact Form Component using Server Action
+const ContactForm: React.FC = () => {
+  // Initial state for the action state hook
+  const initialState: FormState | null = null;
+  // UPDATED: Use useActionState hook
+  const [state, formAction] = useActionState(submitContactForm, initialState);
+
+  // Ref for the form element to allow resetting on success
+  const formRef = React.useRef<HTMLFormElement>(null);
+
+  // Effect to reset the form on successful submission
+  React.useEffect(() => {
+    if (state?.success) {
+      formRef.current?.reset(); // Reset form fields using the ref
+    }
+  }, [state]); // Run effect when state changes
+
+
+  // CSS variable overrides for Input component
+  const inputStyleOverrides = {
+    '--input-active-border': 'var(--color-hwc-dark)',
+    '--input-active-label': 'var(--color-hwc-dark)',
+    '--input-text-color': 'var(--color-hwc-dark)',
+  } as React.CSSProperties;
+
+  return (
+    // Form now uses 'action' prop with the server action
+    <form ref={formRef} action={formAction} className="space-y-6">
       {/* Name Field */}
-      {/* Using floating label Input: requires id and label prop */}
-      <div className="relative">
+      <div style={inputStyleOverrides}>
         <Input
           type="text"
           id="contact-name"
-          name="name" // Name attribute for state update
-          value={formData.name}
-          onChange={handleChange}
-          label="Name" // Label prop for floating label
-          required // Example: make field required
-          // Add specific styling overrides if needed (otherwise defaults from Input component apply)
-          // Assuming light background context based on original PRD for contact form section
-          className="h-[50px] bg-transparent  rounded-none px-0 pb-1 text-[var(--color-hwc-dark)] focus-visible:ring-0"
+          name="name" // Keep name attribute for server action
+          label="Name"
+          required
+          // Conditionally add aria-describedby if there's an error for this field
+          aria-describedby={state?.errors?.name ? "name-error" : undefined}
+          className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
-         {/* Animated underline div is INSIDE the Input component now */}
+        {/* Display validation errors if they exist */}
+        {state?.errors?.name && (
+           <p id="name-error" className="text-xs text-red-500 mt-1">{state.errors.name[0]}</p>
+        )}
       </div>
 
       {/* Email Field */}
-      <div className="relative">
+      <div style={inputStyleOverrides}>
         <Input
           type="email"
           id="contact-email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
           label="Email"
           required
-          className="h-[50px] bg-transparent  rounded-none px-0 pb-1 text-[var(--color-hwc-dark)] focus-visible:ring-0"
+          aria-describedby={state?.errors?.email ? "email-error" : undefined}
+          className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
+         {state?.errors?.email && (
+           <p id="email-error" className="text-xs text-red-500 mt-1">{state.errors.email[0]}</p>
+        )}
       </div>
 
       {/* Phone Field */}
-      <div className="relative">
+      <div style={inputStyleOverrides}>
         <Input
           type="tel"
           id="contact-phone"
           name="phone"
-          value={formData.phone}
-          onChange={handleChange}
           label="Phone Number"
-          className="h-[50px] bg-transparent  rounded-none px-0 pb-1 text-[var(--color-hwc-dark)] focus-visible:ring-0"
+          aria-describedby={state?.errors?.phone ? "phone-error" : undefined}
+          className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
+         {state?.errors?.phone && (
+           <p id="phone-error" className="text-xs text-red-500 mt-1">{state.errors.phone[0]}</p>
+        )}
       </div>
 
-      {/* Best Contact Time Field - Using a simple text input for now */}
-      {/* TODO: Could be replaced with a <select> dropdown later */}
-      <div className="relative">
+      {/* Best Contact Time Field */}
+      <div style={inputStyleOverrides}>
          <Input
           type="text"
           id="contact-time"
-          name="contactTime"
-          value={formData.contactTime}
-          onChange={handleChange}
+          name="contactTime" // Ensure name matches schema
           label="Best Time to Contact"
-          className="h-[50px] bg-transparent  rounded-none px-0 pb-1 text-[var(--color-hwc-dark)] focus-visible:ring-0"
+          aria-describedby={state?.errors?.contactTime ? "contactTime-error" : undefined}
+          className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
+         {state?.errors?.contactTime && (
+           <p id="contactTime-error" className="text-xs text-red-500 mt-1">{state.errors.contactTime[0]}</p>
+        )}
       </div>
 
-      {/* Submit Button */}
+      {/* Submit Button Component */}
       <div className="pt-4">
-        {/* Using default (teal) button variant */}
-        <Button type="submit" variant="default" size="default" className="w-full md:w-auto">
-          Get in touch
-        </Button>
+        <SubmitButton />
       </div>
+
+      {/* Display Success or General Error Messages from Server Action */}
+      {/* Ensure state.message exists and is not just for validation errors */}
+      {state?.message && (
+        <p className={cn(
+            "text-sm mt-2",
+            state.success ? "text-green-600" : "text-red-600" // Conditional color
+          )}
+        >
+            {state.message}
+        </p>
+      )}
     </form>
   );
 };
 
-export { ContactForm }; // Export named component
+export { ContactForm };

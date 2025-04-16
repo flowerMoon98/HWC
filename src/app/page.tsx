@@ -2,7 +2,7 @@ import React from 'react'; // Ensure React is imported
 
 // Import section components used on the page
 import { HeroSection } from '@/components/sections/HeroSection';
-import { ContentBlock } from '@/components/sections/ContentBlock';
+//import { ContentBlock } from '@/components/sections/ContentBlock';
 import { NicheSection } from '@/components/sections/NicheSection';
 import { TestimonialSection } from '@/components/sections/TestimonialSection';
 import { ContactFormSection } from '@/components/layout/ContactFormSection';

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       {/* Apply the font class to the body */}
-      <body className={`${inter.variable} font-sans bg-white text-gray-900 antialiased flex flex-col min-h-screen`}>
+      <body className={`${inter.variable} font-sans bg-hwc-white text-gray-900 antialiased flex flex-col min-h-screen`}>
         {/* Render the Header component */}
         <Header />
 

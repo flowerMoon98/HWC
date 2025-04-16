@@ -1,7 +1,8 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { ContentBlock } from '@/components/sections/ContentBlock';
 import { IntroSection } from '@/components/sections/IntroSection';
+import { ReusableImageOverlayHero } from '@/components/sections/ReusableImageOverlayHero';
+import { heroData } from '@/lib/data/propertyPageContent';
 
 // Property Service Page Component
 const PropertyPage = () => {
@@ -24,31 +25,23 @@ const PropertyPage = () => {
         />
 
       {/* === Content Block 1: Investment Property Analysis === */}
-      <ContentBlock
-        heading="Investment Property Analysis"
-        text="Considering an investment property? We help analyze potential returns, cash flow projections, financing structures, and tax implications to ensure your investment aligns with your financial objectives."
-        imageUrl="/images/placeholders/property-investment.jpg" // Add placeholder
-        imageAlt="Row of investment houses"
-        imagePosition="right"
-        className="bg-gray-50"
-      />
+      {heroData.map((hero, index) => (
+        <ReusableImageOverlayHero
+          // Use a unique key if hero items have IDs, otherwise index is fallback
+          key={hero.headingText || index}
+          backgroundImageUrl={hero.backgroundImageUrl}
+          headingText={hero.headingText}
+          paragraphText={hero.paragraphText}
+          imageAltText={hero.imageAltText}
+        />
+      ))}
+      
 
       {/* === Content Block 2: Primary Residence Decisions === */}
-      <ContentBlock
-        heading="Primary Residence Decisions"
-        text="Guidance on buying vs. renting, mortgage analysis, refinancing options, and understanding the financial impact of homeownership within your overall plan."
-        imageUrl="/images/placeholders/home-buying.jpg" // Add placeholder
-        imageAlt="Couple looking at house plans"
-        imagePosition="left"
-        className="bg-white"
-      />
+      
 
        {/* === Content Block 3: Real Estate Portfolio Integration === */}
-       <ContentBlock
-        heading="Portfolio Integration"
-        text="We help you understand how your real estate holdings fit within your diversified investment strategy, considering factors like liquidity, risk, and long-term appreciation potential."
-        className="bg-gray-50"
-      />
+       
     </>
   );
 };

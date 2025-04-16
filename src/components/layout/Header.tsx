@@ -89,7 +89,7 @@ const Header = () => {
   return (
     // Sticky Header with glassmorphism styles
     <header className="sticky top-0 z-50 w-full border-b border-white/20 bg-white/10 backdrop-blur">
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
 
           {/* Logo */}
