@@ -16,7 +16,7 @@ const serviceLinks = [
     { href: '/services/insurance', label: 'Insurance' },
     { href: '/services/accounting', label: 'Accounting' },
     { href: '/services/wealth-management', label: 'Wealth Management' },
-    { href: '/services/healthcare-planning', label: 'Healthcare Planning' },
+    { href: '/services/healthcare', label: 'Healthcare Planning' },
     { href: '/services/property', label: 'Property' },
 ];
 // Placeholder data for main nav links (move to lib/data later)

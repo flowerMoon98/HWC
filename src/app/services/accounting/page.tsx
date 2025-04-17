@@ -3,6 +3,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { IntroSectionStacked } from '@/components/sections/IntroSectionStacked';
 import { CoreServicesSection } from '@/components/sections/CoreServicesSection';
 import { mockAccountingServices } from '@/lib/data/accountingServices';
+import { ContactFormSection } from '@/components/layout/ContactFormSection';
 
 // Accounting Service Page Component
 const AccountingPage = () => {
@@ -24,6 +25,7 @@ const AccountingPage = () => {
   theme="dark" // Specify the dark theme here
 />
     <CoreServicesSection services={mockAccountingServices}/>
+    <ContactFormSection imageUrl= "/images/placeholders/contact/image2.jpg" imageAlt='accounting image'/>
 
 
       

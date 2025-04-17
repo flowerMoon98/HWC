@@ -7,7 +7,7 @@ import { InsuranceFeatureSection } from '@/components/sections/InsuranceFeatureS
 // Import the mock data for the features
 import { mockInsuranceFeatures } from '@/lib/data/insuranceFeatures';
 // Import ContactFormSection if needed (or handle globally later)
-// import { ContactFormSection } from '@/components/layout/ContactFormSection';
+import { ContactFormSection } from '@/components/layout/ContactFormSection';
 
 // Insurance Service Page Component
 const InsurancePage = () => {
@@ -39,7 +39,7 @@ const InsurancePage = () => {
 
       {/* === Contact Form Section === */}
       {/* Add this section back if needed on this page */}
-      {/* <ContactFormSection /> */}
+      { <ContactFormSection imageUrl='/images/placeholders/contact/image3.jpg' imageAlt='insurance' /> }
     </>
   );
 };

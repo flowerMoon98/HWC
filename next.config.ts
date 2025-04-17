@@ -1,23 +1,23 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
+    // keep your existing remotePatterns
     remotePatterns: [
       {
-        protocol: 'https', // Protocol used by placehold.co
-        hostname: 'placehold.co', // The allowed domain
-        port: '', // Default port (usually empty)
-        pathname: '/**', // Allow any path on this domain
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
       },
-      // Add other domains here if needed later
-      // {
-      //   protocol: 'https',
-      //   hostname: 'your-cms-domain.com',
-      //   port: '',
-      //   pathname: '/images/**',
-      // },
     ],
+
+    // ← add these two arrays to cover every DPR / screen width
+    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1440, 1920, 2560, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512],
+
+    // optional: tell Next to emit modern formats first
+    
   },
 };
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { IntroSection } from '@/components/sections/IntroSection';
-import { ContentBlock } from '@/components/sections/ContentBlock';
+import { ContactFormSection } from '@/components/layout/ContactFormSection';
+//import { ContentBlock } from '@/components/sections/ContentBlock';
 
 // Healthcare Planning Service Page Component
 const HealthcarePlanningPage = () => {
@@ -25,6 +26,7 @@ const HealthcarePlanningPage = () => {
       />
 
       {/* === Content Block 1: Understanding Options === */}
+      <ContactFormSection imageUrl="/images/placeholders/contact/image4.jpg" imageAlt='Healthcare image'/>
       
 
       {/* === Content Block 2: Long-Term Care Planning === */}

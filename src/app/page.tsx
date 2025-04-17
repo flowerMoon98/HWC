@@ -46,7 +46,7 @@ export default function Home() {
 
       {/* === Contact Form Section === */}
       {/* Added before the implicit Footer */}
-      <ContactFormSection />
+      <ContactFormSection imageUrl='/images/placeholders/contact/image1.jpg' />
 
     </>
   );
