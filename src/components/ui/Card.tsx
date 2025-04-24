@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { cn } from '@/lib/utils'; // Import our utility function
+import { cn } from "@/lib/utils"; // Import our utility function
 
 // Define the props for the Card component
 // Extends standard HTML div attributes
@@ -13,15 +13,15 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       ref={ref}
       className={cn(
         // Base styles for the card container
-        'rounded-lg border border-gray-200 bg-white text-gray-900 shadow-sm',
+        "rounded-lg border border-gray-200 bg-white text-gray-900 shadow-sm",
         // Allow passing custom classes
-        className
+        className,
       )}
       {...props} // Pass down remaining props (like children)
     />
-  )
+  ),
 );
-Card.displayName = 'Card'; // Set display name for React DevTools
+Card.displayName = "Card"; // Set display name for React DevTools
 
 // Export the component
 export { Card };

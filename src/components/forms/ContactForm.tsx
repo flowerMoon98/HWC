@@ -1,15 +1,15 @@
-'use client'; // Still a client component because we use hooks
+"use client"; // Still a client component because we use hooks
 
-import React from 'react';
+import React from "react";
 // UPDATED: Import useActionState from react
-import { useActionState } from 'react';
+import { useActionState } from "react";
 // Import useFormStatus from react-dom (remains the same)
-import { useFormStatus } from 'react-dom';
-import { cn } from '@/lib/utils';
-import { Input } from '@/components/ui/Input';
-import { Button } from '@/components/ui/Button';
+import { useFormStatus } from "react-dom";
+import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 // Import the Server Action and state type (assuming actions.ts is in lib)
-import { submitContactForm, type FormState } from '@/lib/actions';
+import { submitContactForm, type FormState } from "@/lib/actions";
 
 // Internal Submit Button component to use useFormStatus
 function SubmitButton() {
@@ -24,7 +24,7 @@ function SubmitButton() {
       disabled={pending}
       aria-disabled={pending}
     >
-      {pending ? 'Sending...' : 'Get in touch'}
+      {pending ? "Sending..." : "Get in touch"}
     </Button>
   );
 }
@@ -46,12 +46,11 @@ const ContactForm: React.FC = () => {
     }
   }, [state]); // Run effect when state changes
 
-
   // CSS variable overrides for Input component
   const inputStyleOverrides = {
-    '--input-active-border': 'var(--color-hwc-dark)',
-    '--input-active-label': 'var(--color-hwc-dark)',
-    '--input-text-color': 'var(--color-hwc-dark)',
+    "--input-active-border": "var(--color-hwc-dark)",
+    "--input-active-label": "var(--color-hwc-dark)",
+    "--input-text-color": "var(--color-hwc-dark)",
   } as React.CSSProperties;
 
   return (
@@ -71,7 +70,9 @@ const ContactForm: React.FC = () => {
         />
         {/* Display validation errors if they exist */}
         {state?.errors?.name && (
-           <p id="name-error" className="text-xs text-red-500 mt-1">{state.errors.name[0]}</p>
+          <p id="name-error" className="text-xs text-red-500 mt-1">
+            {state.errors.name[0]}
+          </p>
         )}
       </div>
 
@@ -86,8 +87,10 @@ const ContactForm: React.FC = () => {
           aria-describedby={state?.errors?.email ? "email-error" : undefined}
           className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
-         {state?.errors?.email && (
-           <p id="email-error" className="text-xs text-red-500 mt-1">{state.errors.email[0]}</p>
+        {state?.errors?.email && (
+          <p id="email-error" className="text-xs text-red-500 mt-1">
+            {state.errors.email[0]}
+          </p>
         )}
       </div>
 
@@ -101,23 +104,29 @@ const ContactForm: React.FC = () => {
           aria-describedby={state?.errors?.phone ? "phone-error" : undefined}
           className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
-         {state?.errors?.phone && (
-           <p id="phone-error" className="text-xs text-red-500 mt-1">{state.errors.phone[0]}</p>
+        {state?.errors?.phone && (
+          <p id="phone-error" className="text-xs text-red-500 mt-1">
+            {state.errors.phone[0]}
+          </p>
         )}
       </div>
 
       {/* Best Contact Time Field */}
       <div style={inputStyleOverrides}>
-         <Input
+        <Input
           type="text"
           id="contact-time"
           name="contactTime" // Ensure name matches schema
           label="Best Time to Contact"
-          aria-describedby={state?.errors?.contactTime ? "contactTime-error" : undefined}
+          aria-describedby={
+            state?.errors?.contactTime ? "contactTime-error" : undefined
+          }
           className="h-[50px] bg-transparent rounded-none px-0 pb-1 focus-visible:ring-0" // Kept user styles
         />
-         {state?.errors?.contactTime && (
-           <p id="contactTime-error" className="text-xs text-red-500 mt-1">{state.errors.contactTime[0]}</p>
+        {state?.errors?.contactTime && (
+          <p id="contactTime-error" className="text-xs text-red-500 mt-1">
+            {state.errors.contactTime[0]}
+          </p>
         )}
       </div>
 
@@ -129,12 +138,13 @@ const ContactForm: React.FC = () => {
       {/* Display Success or General Error Messages from Server Action */}
       {/* Ensure state.message exists and is not just for validation errors */}
       {state?.message && (
-        <p className={cn(
+        <p
+          className={cn(
             "text-sm mt-2",
-            state.success ? "text-green-600" : "text-red-600" // Conditional color
+            state.success ? "text-green-600" : "text-red-600", // Conditional color
           )}
         >
-            {state.message}
+          {state.message}
         </p>
       )}
     </form>

@@ -1,7 +1,8 @@
-import React from 'react';
-import { HeroSection } from '@/components/sections/HeroSection';
+import React from "react";
+import { HeroSection } from "@/components/sections/HeroSection";
 // Import ContactFormSection when ready in Phase 7
-import { ContactFormSection } from '@/components/layout/ContactFormSection';
+//import { ContactFormSection } from '@/components/layout/ContactFormSection';
+import { ContactPageContentSection } from "@/components/sections/ContactPageContentSection";
 
 // Contact Us Page Component
 const ContactUsPage = () => {
@@ -18,14 +19,10 @@ const ContactUsPage = () => {
       {/* === Placeholder for Integrated Contact Form === */}
       {/* The Contact Form Section component will be integrated here directly */}
       {/* instead of appearing before the footer (as per plan Phase 7) */}
-    
-       
-          {/* Placeholder for the actual component: */}
-          <ContactFormSection /> 
-           {/* TODO: Add other contact details like map, phone, address if needed */}
-       
-  
 
+      {/* Placeholder for the actual component: */}
+      <ContactPageContentSection />
+      {/* TODO: Add other contact details like map, phone, address if needed */}
     </>
   );
 };

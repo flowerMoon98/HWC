@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 // Define the structure for the feature data prop
 // REMOVED 'export' from this interface definition
@@ -30,7 +30,7 @@ const ThreeColumnFeatureSection: React.FC<ThreeColumnFeatureProps> = ({
 
   return (
     // Main section container - Full width, no internal padding
-    <section className={cn('w-full', className)}>
+    <section className={cn("w-full", className)}>
       {/*
         Grid Layout:
         - Mobile (default): 1 column (grid-cols-1)
@@ -46,23 +46,29 @@ const ThreeColumnFeatureSection: React.FC<ThreeColumnFeatureProps> = ({
             // Using heading as key assumes headings are unique, prefer feature.id if available
             key={feature.heading || index}
             className={cn(
-              'p-8 md:p-10 lg:p-12', // Padding inside each column
-              'aspect-square', // Make the column square
-              'flex flex-col justify-between', // Use flex to distribute content vertically
+              "p-8 md:p-10 lg:p-12", // Padding inside each column
+              "aspect-square", // Make the column square
+              "flex flex-col justify-between", // Use flex to distribute content vertically
               feature.bgColorClass, // Apply background color class from props
-              feature.textColorClass // Apply text color class from props
+              feature.textColorClass, // Apply text color class from props
             )}
           >
             {/* Content Wrapper */}
             <div>
-                {/* Heading - Defaults to left align */}
-                <h3 className="text-2xl font-semibold mb-4"> {/* Adjusted font weight */}
-                  {feature.heading}
-                </h3>
-                {/* Description - Defaults to left align */}
-                <div className="text-base leading-relaxed">
-                  {typeof feature.text === 'string' ? <p>{feature.text}</p> : feature.text}
-                </div>
+              {/* Heading - Defaults to left align */}
+              <h3 className="text-2xl font-semibold mb-4">
+                {" "}
+                {/* Adjusted font weight */}
+                {feature.heading}
+              </h3>
+              {/* Description - Defaults to left align */}
+              <div className="text-base leading-relaxed">
+                {typeof feature.text === "string" ? (
+                  <p>{feature.text}</p>
+                ) : (
+                  feature.text
+                )}
+              </div>
             </div>
             {/* Empty div helps justify-between push content up */}
             <div></div>
@@ -76,4 +82,3 @@ const ThreeColumnFeatureSection: React.FC<ThreeColumnFeatureProps> = ({
 // Export the component and types (FeatureColumnProps is only exported here now)
 export { ThreeColumnFeatureSection };
 export type { ThreeColumnFeatureProps, FeatureColumnProps };
-

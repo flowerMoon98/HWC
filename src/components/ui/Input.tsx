@@ -1,14 +1,15 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { cn } from "@/lib/utils";
 
 // Define props including optional label and new variant prop
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  variant?: 'dark' | 'white';
+  variant?: "dark" | "white";
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, id, variant = 'dark', ...props }, ref) => {
+  ({ className, type, label, id, variant = "dark", ...props }, ref) => {
     // Ensure there's an ID for label association
     const generatedId = React.useId();
     const inputId = id || generatedId;
@@ -58,7 +59,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "focus:outline-none focus-visible:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0",
             "peer",
             // Allow overriding classes
-            className
+            className,
           )}
           ref={ref}
           placeholder={label ? " " : props.placeholder || " "}
@@ -84,7 +85,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               "peer-[:not(:placeholder-shown)]:scale-75",
               // Color WHEN FLOATED still uses variant logic:
               variantClasses.labelFocus,
-              "pointer-events-none" // Allow clicks through
+              "pointer-events-none", // Allow clicks through
             )}
           >
             {label}
@@ -101,14 +102,14 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             variantClasses.underline, // Variant underline color (animation remains intact)
             "after:origin-left after:scale-x-0", // Animate from left
             "after:transition-transform after:duration-400 after:ease-out", // Transition transform
-            "group-hover:after:scale-x-100 group-focus-within:after:scale-x-100" // Scale on hover/focus-within
+            "group-hover:after:scale-x-100 group-focus-within:after:scale-x-100", // Scale on hover/focus-within
           )}
           aria-hidden="true"
         />
       </div>
     );
-  }
+  },
 );
-Input.displayName = 'Input';
+Input.displayName = "Input";
 
 export { Input };

@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { cn } from "@/lib/utils";
 // Import the type for service items (or define it locally if not global)
-import type { CoreServiceItem } from '@/lib/data/accountingServices'; // Adjust path if type moved
+import type { CoreServiceItem } from "@/lib/data/accountingServices"; // Adjust path if type moved
 
 // Define props for the CoreServicesSection component
 interface CoreServicesProps {
@@ -25,10 +25,9 @@ const CoreServicesSection: React.FC<CoreServicesProps> = ({
   return (
     // Main section container
     // Assuming white background, standard padding. Add borders via className if needed.
-    <section className={cn('py-16 sm:py-24 bg-white', className)}>
+    <section className={cn("py-16 sm:py-24 bg-white", className)}>
       {/* Container for max-width and centering */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-
         {/* Section Title */}
         {/* Left-aligned, dark text, standard heading size, bottom margin */}
         <h2 className="text-3xl  tracking-tight text-left text-[var(--color-hwc-dark)] sm:text-4xl mb-12 lg:mb-16">
@@ -59,10 +58,14 @@ const CoreServicesSection: React.FC<CoreServicesProps> = ({
 
                 {/* Service Description Column (Left Aligned) */}
                 <div className="sm:col-span-2">
-                   {/* Assuming text-sm, gray color, relaxed leading */}
-                   <div className="text-sm text-gray-600 leading-relaxed">
-                     {typeof service.description === 'string' ? <p>{service.description}</p> : service.description}
-                   </div>
+                  {/* Assuming text-sm, gray color, relaxed leading */}
+                  <div className="text-sm text-gray-600 leading-relaxed">
+                    {typeof service.description === "string" ? (
+                      <p>{service.description}</p>
+                    ) : (
+                      service.description
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -75,4 +78,3 @@ const CoreServicesSection: React.FC<CoreServicesProps> = ({
 
 export { CoreServicesSection };
 export type { CoreServicesProps };
-

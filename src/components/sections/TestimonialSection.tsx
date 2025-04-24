@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Image from 'next/image'; // Import Next.js Image for optimized images
-import { cn } from '@/lib/utils'; // Utility for combining class names
-import { Card } from '@/components/ui/Card'; // Import the Card component we created
-import type { Testimonial } from '@/types'; // Import the TestimonialItem type definition
+import * as React from "react";
+import Image from "next/image"; // Import Next.js Image for optimized images
+import { cn } from "@/lib/utils"; // Utility for combining class names
+import { Card } from "@/components/ui/Card"; // Import the Card component we created
+import type { Testimonial } from "@/types"; // Import the TestimonialItem type definition
 
 // Define props for the TestimonialSection component
 interface TestimonialSectionProps {
@@ -24,7 +24,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
 
   return (
     // Section container with background and padding
-    <section className={cn('py-16 sm:py-24 bg-gray-50', className)}>
+    <section className={cn("py-16 sm:py-24 bg-gray-50", className)}>
       {/* Centered container for content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
@@ -38,12 +38,13 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
           {/* Map over the testimonials array */}
           {testimonials.map((testimonial) => (
             // Use the Card component for each testimonial item
-            <Card key={testimonial.id} className="flex flex-col p-6"> {/* Add padding inside card */}
+            <Card key={testimonial.id} className="flex flex-col p-6">
+              {" "}
+              {/* Add padding inside card */}
               {/* Testimonial Quote */}
               <blockquote className="flex-grow text-gray-700 italic mb-4">
                 <p>&ldquo;{testimonial.quote}&rdquo;</p>
               </blockquote>
-
               {/* Author Information */}
               <footer className="flex items-center gap-3 mt-auto pt-4 border-t border-gray-200">
                 {/* Author Image (Optional) */}
@@ -58,10 +59,14 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({
                 )}
                 {/* Placeholder if no image URL is provided */}
                 {!testimonial.imageUrl && (
-                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-sm font-semibold text-gray-500 flex-shrink-0">
-                     {/* Simple initials placeholder logic */}
-                     {testimonial.authorName.split(' ').map(n => n[0]).slice(0, 2).join('')}
-                   </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 text-sm font-semibold text-gray-500 flex-shrink-0">
+                    {/* Simple initials placeholder logic */}
+                    {testimonial.authorName
+                      .split(" ")
+                      .map((n) => n[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </div>
                 )}
                 {/* Author Name and Title */}
                 <div>

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 // Props for the card component
 export interface InsuranceColumnCardProps {
@@ -8,7 +8,7 @@ export interface InsuranceColumnCardProps {
   description: string | React.ReactNode;
   imageUrl: string;
   altText: string;
-  layoutOrder?: 'text-top' | 'image-top'; // Default to text-top
+  layoutOrder?: "text-top" | "image-top"; // Default to text-top
   className?: string;
 }
 
@@ -18,7 +18,7 @@ const InsuranceColumnCard: React.FC<InsuranceColumnCardProps> = ({
   description,
   imageUrl,
   altText,
-  layoutOrder = 'text-top', // Default order
+  layoutOrder = "text-top", // Default order
   className,
 }) => {
   // Content blocks rendering
@@ -29,7 +29,7 @@ const InsuranceColumnCard: React.FC<InsuranceColumnCardProps> = ({
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       {/* Assuming text-sm description */}
       <div className="text-sm">
-        {typeof description === 'string' ? <p>{description}</p> : description}
+        {typeof description === "string" ? <p>{description}</p> : description}
       </div>
     </div>
   );
@@ -49,9 +49,9 @@ const InsuranceColumnCard: React.FC<InsuranceColumnCardProps> = ({
 
   return (
     // Main container using flex column with 8px gap (gap-2)
-    <div className={cn('flex flex-col gap-2 overflow-hidden', className)}>
+    <div className={cn("flex flex-col gap-2 overflow-hidden", className)}>
       {/* Conditional rendering based on layoutOrder */}
-      {layoutOrder === 'text-top' ? (
+      {layoutOrder === "text-top" ? (
         <>
           {TextContentBlock}
           {ImageBlock}
@@ -67,4 +67,3 @@ const InsuranceColumnCard: React.FC<InsuranceColumnCardProps> = ({
 };
 
 export { InsuranceColumnCard };
-

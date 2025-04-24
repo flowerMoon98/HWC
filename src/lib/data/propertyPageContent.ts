@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ReactNode } from "react";
 
 // Define a simple type for the hero data items on the property page
 interface PropertyHeroItem {
@@ -14,19 +14,22 @@ export const heroData: PropertyHeroItem[] = [
   {
     backgroundImageUrl: "/images/placeholders/property/propertyImage1.jpg",
     headingText: "Real Estate Investment Advisory",
-    paragraphText: "Strategic insights and analysis for maximizing your property portfolio returns.",
+    paragraphText:
+      "Strategic insights and analysis for maximizing your property portfolio returns.",
     imageAltText: "Modern building exterior with blue sky",
   },
   {
     backgroundImageUrl: "/images/placeholders/property/propertyImage2.jpg",
     headingText: "Primary Residence Consultation",
-    paragraphText: "Navigating the complexities of buying, selling, and financing your home.",
+    paragraphText:
+      "Navigating the complexities of buying, selling, and financing your home.",
     imageAltText: "Couple looking at house blueprints with agent",
   },
   {
     backgroundImageUrl: "/images/placeholders/property/propertyImage3.jpg",
     headingText: "Property Management Integration",
-    paragraphText: "Aligning property ownership with your overall financial goals and wealth strategy.",
+    paragraphText:
+      "Aligning property ownership with your overall financial goals and wealth strategy.",
     imageAltText: "Keys on top of architectural drawings",
   },
 ];

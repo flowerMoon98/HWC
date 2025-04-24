@@ -3,7 +3,7 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { IntroSection } from '@/components/sections/IntroSection';
 import { ReusableImageOverlayHero } from '@/components/sections/ReusableImageOverlayHero';
 import { heroData } from '@/lib/data/propertyPageContent';
-
+import { ContactFormSection } from '@/components/layout/ContactFormSection';
 // Property Service Page Component
 const PropertyPage = () => {
   return (
@@ -14,15 +14,19 @@ const PropertyPage = () => {
         subtitle="Informed decisions for your real estate investments and primary residence."
         backgroundImageUrl="/images/placeholders/property-hero.jpg"
         backgroundColorClass="bg-[var(--color-hwc-blue-light)]"
-        ctaButton={{ text: 'Discuss Property Goals', href: '/contact', variant: 'default' }}
+        ctaButton={{
+          text: 'Discuss Property Goals',
+          href: '/contact',
+          variant: 'default',
+        }}
       />
 
       {/* === Intro Section === */}
       <IntroSection
         title="A Strategic Approach to Property Investments"
-        description='We provide insights and guidance on property decisions that are aligned with your financial goals, enabling you to invest in real estate confidently.'
-        theme='light'
-        />
+        description="We provide insights and guidance on property decisions that are aligned with your financial goals, enabling you to invest in real estate confidently."
+        theme="light"
+      />
 
       {/* === Content Block 1: Investment Property Analysis === */}
       {heroData.map((hero, index) => (
@@ -35,13 +39,14 @@ const PropertyPage = () => {
           imageAltText={hero.imageAltText}
         />
       ))}
-      
+      <ContactFormSection
+        imageUrl="/images/placeholders/contact/image5.jpg"
+        imageAlt="accounting image"
+      />
 
       {/* === Content Block 2: Primary Residence Decisions === */}
-      
 
-       {/* === Content Block 3: Real Estate Portfolio Integration === */}
-       
+      {/* === Content Block 3: Real Estate Portfolio Integration === */}
     </>
   );
 };

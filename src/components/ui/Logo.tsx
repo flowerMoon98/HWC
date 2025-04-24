@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils'; // Optional: for className overrides
+import * as React from "react";
+import { cn } from "@/lib/utils"; // Optional: for className overrides
 
 // Update props to extend SVG attributes using a type alias
 export type LogoProps = React.SVGProps<SVGSVGElement>;
@@ -16,7 +16,7 @@ const Logo = React.forwardRef<SVGSVGElement, LogoProps>(
         viewBox="0 0 130 40" // Keep original viewBox
         fill="currentColor" // Set fill to inherit text color (removed hardcoded #FAFAF9 from paths)
         xmlns="http://www.w3.org/2000/svg"
-        className={cn('', className)} // Allow className overrides
+        className={cn("", className)} // Allow className overrides
         {...props} // Pass down other SVG props
       >
         {/* Path for the icon part (fill removed) */}
@@ -41,10 +41,9 @@ const Logo = React.forwardRef<SVGSVGElement, LogoProps>(
         <path d="M120.669 9.7141V12.844H121.503V9.7141H122.672V9.0498H119.5V9.7141H120.669ZM123.031 12.844H123.807V11.1117C123.807 10.7397 123.801 10.5005 123.791 10.1286H123.812C123.897 10.4527 123.956 10.66 124.078 11.032L124.673 12.844H125.444L126.039 11.032C126.161 10.66 126.22 10.4527 126.304 10.1286H126.326C126.315 10.5005 126.31 10.7397 126.31 11.1117V12.844H127.086V9.0498H126.018L125.348 11.0904C125.237 11.4465 125.157 11.7387 125.072 12.1H125.05C124.96 11.7387 124.886 11.4465 124.769 11.0904L124.099 9.0498H123.031V12.844Z" />
       </svg>
     );
-  }
+  },
 );
-Logo.displayName = 'Logo'; // Set display name for React DevTools
+Logo.displayName = "Logo"; // Set display name for React DevTools
 
 // Export the component
 export { Logo };
-

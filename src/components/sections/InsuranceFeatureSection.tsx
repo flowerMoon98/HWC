@@ -1,7 +1,10 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { cn } from "@/lib/utils";
 // Import the card component and its props type
-import { InsuranceColumnCard, type InsuranceColumnCardProps } from '@/components/ui/InsuranceColumnCard';
+import {
+  InsuranceColumnCard,
+  type InsuranceColumnCardProps,
+} from "@/components/ui/InsuranceColumnCard";
 
 // Define props for the main section component
 interface InsuranceFeatureSectionProps {
@@ -25,7 +28,7 @@ const InsuranceFeatureSection: React.FC<InsuranceFeatureSectionProps> = ({
   return (
     // Main section with white background and padding
     // TODO: Add decorative border classes if specified
-    <section className={cn('py-16 sm:py-24 bg-white', className)}>
+    <section className={cn("py-16 sm:py-24 bg-white", className)}>
       {/* Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
         {/* Section Title */}
@@ -55,4 +58,3 @@ const InsuranceFeatureSection: React.FC<InsuranceFeatureSectionProps> = ({
 
 export { InsuranceFeatureSection };
 export type { InsuranceFeatureSectionProps };
-
